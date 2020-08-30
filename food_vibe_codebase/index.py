@@ -3,6 +3,7 @@ import bottle
 from loading_data import load_data_from_csv, read_properties
 from food_vibe_model.models import restaurant
 import json
+import logging
 
 
 class EnableCors(object):
@@ -24,6 +25,11 @@ class EnableCors(object):
 
 
 app = bottle.app()
+
+
+@route("/testing")
+def test():
+    return "Hello World"
 
 
 @route("/load-data")
@@ -57,5 +63,4 @@ def map_restaurant(restaurant_obj):
 
 read_properties()
 app.install(EnableCors())
-
 app.run()

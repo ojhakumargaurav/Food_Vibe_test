@@ -4,19 +4,23 @@ from mongoengine import connect
 from food_vibe_model.models import restaurant
 import numpy as np
 import json
-properties_file_path = "food_vibe_codebase\\food_vibe_properties.json"
+import logging
+import os
 
 
 def read_properties():
+    properties_file_path = os.path.join(
+        os.getcwd(), "food_vibe_properties.json")
     with open(properties_file_path) as f:
         app_config = json.load(f)
         if ("MONGODB_URL" in app_config.keys()):
             connect(host=app_config.get("MONGODB_URL", ""))
+            logging.info("connected mongodb successfully")
 
 
 def load_data_from_csv():
     read_properties()
-    directory = "food_vibe_codebase\\csv_data\\"
+    directory = os.path.join(os.getcwd(), "csv_data")
     restaurant_list = []
     for root, dirs, files in os.walk(directory):
         for file in files:
