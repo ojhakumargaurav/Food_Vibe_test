@@ -1,5 +1,7 @@
 # Food_Vibe_test
-this repository will have backen in bottle and frontend in vue-js for showing and searching the restaurants
+Frontend: Vue.js
+Backend: Bottle(python framework)
+database: Mongodb
 
 
 To run the python code base :
