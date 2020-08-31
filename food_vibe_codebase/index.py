@@ -63,4 +63,4 @@ def map_restaurant(restaurant_obj):
 
 read_properties()
 app.install(EnableCors())
-app.run()
+app.run(host="0.0.0.0", port=9092)
